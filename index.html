@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>ToolsWala</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+</head>
+
+<body>
+
+  <section class="hero">
+
+    <!-- Logo -->
+    <div class="logo">ToolsWala</div>
+
+    <!-- Center Container -->
+    <div class="hero-container">
+
+      <!-- LEFT -->
+      <div class="left-card">
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="tab active" data-tab="url"><i class="bi bi-link"></i> URL</button>
+          <button class="tab" data-tab="pdf">PDF</button>
+          <button class="tab" data-tab="contact">Contact</button>
+          <button class="tab" data-tab="text">Plain Text</button>
+          <button class="tab" data-tab="app">App</button>
+          <button class="tab" data-tab="sms">SMS</button>
+          <button class="tab" data-tab="email">Email</button>
+          <button class="tab" data-tab="phone">Phone</button>
+        </div>
+
+        <!-- Dynamic Area (THIS changes on tab click) -->
+        <div class="tab-area">
+
+          <div class="tab-content url-tab active" id="url">
+            <h4>Redirect To An Existing Web URL</h4>
+            <input type="text" placeholder="URL Here" />
+            <p class="hint">
+              Try something like https://example.com/
+            </p>
+          </div>
+
+
+          <div class="tab-content" id="pdf">
+            <h4>Link A Pdf Document</h4>
+
+            <label class="pdf-upload">
+              <input type="file" hidden />
+              <div class="upload-icon"><i class="bi bi-upload"></i></div>
+              <p>
+                Choose a file or drop it here (File size limit: Max 20MB)
+              </p>
+            </label>
+          </div>
+
+
+          <div class="tab-content" id="contact">
+            <h4 class="contact-title">Share Contact Details Easily</h4>
+
+            <div class="contact-grid">
+              <input type="text" placeholder="First Name">
+              <input type="text" placeholder="Last Name">
+
+              <input type="text" placeholder="Title">
+              <input type="text" placeholder="Organisation">
+
+              <input type="text" placeholder="Phone">
+              <input type="text" placeholder="Mobile Number">
+
+              <input type="email" placeholder="Email Address" class="full">
+            </div>
+          </div>
+
+
+          <div class="tab-content" id="text">
+            <h4 class="content-title">Display A Short Welcome Message</h4>
+            <textarea class="plain-textarea" placeholder="Welcome Message Here"></textarea>
+          </div>
+
+
+          <div class="tab-content app-tab" id="app">
+            <h4>Redirect To App Download</h4>
+            <input type="text" placeholder="Android App Link" />
+            <input type="text" placeholder="Ios App Link" />
+          </div>
+
+          <div class="tab-content sms-tab" id="sms">
+            <h4>Link A Phone Number To Send Message</h4>
+            <input type="text" placeholder="Phone Number" />
+            <textarea placeholder="Message Here"></textarea>
+          </div>
+
+          <!-- EMAIL TAB -->
+          <div class="tab-content email-tab" id="email">
+            <h4>Link An Email Address</h4>
+            <input type="email" placeholder="Email Address" />
+            <input type="text" placeholder="Email Subject" />
+            <textarea placeholder="Email Message"></textarea>
+          </div>
+
+          <!-- PHONE TAB -->
+          <div class="tab-content phone-tab" id="phone">
+            <h4>Link A Phone Number For Quick Call</h4>
+            <input type="text" placeholder="Phone Number" />
+          </div>
+
+
+
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="right-card">
+        <div class="qr-preview">
+          <img src="assets/QR code.png" alt="Qr code">
+        </div>
+
+        <div class="qr-buttons">
+          <button class="green"><img src="assets/download.png" alt="download"></button>
+          <button class="blue"><img src="assets/share.png" alt="share"></button>
+          <button class="purple"><img src="assets/copy.png" alt="copy"></button>
+          <button class="orange"><img src="assets/paint.png" alt="paint"></button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hero-cloud">
+      <img src="assets/Group 1.png" alt="cloud divider">
+    </div>
+
+
+  </section>
+
+
+
+
+
+  <section class="how-section">
+    <h2>How To Create QR Codes?</h2>
+
+    <div class="steps">
+      <div class="step">
+        <span class="step-number">1</span>
+        <div class="step-box"></div>
+        <h4>Choose the content of your QR</h4>
+        <p>Select from a wide variety of options: PDF, menu, video, business cards, web, apps, etc.</p>
+      </div>
+
+      <div class="step">
+        <span class="step-number">2</span>
+        <div class="step-box"></div>
+        <h4>Customise and design it</h4>
+        <p>Fill in all the information and use our design tool to make your QR unique.</p>
+      </div>
+
+      <div class="step">
+        <span class="step-number">3</span>
+        <div class="step-box"></div>
+        <h4>Download your QR code</h4>
+        <p>Get your QR code in different formats and use it digitally or in print.</p>
+      </div>
+    </div>
+
+    <button class="cta-btn">Create QR Code</button>
+  </section>
+
+
+  <section class="faq-section">
+    <h2 class="faq-title">Everything You Need To Know</h2>
+
+    <div class="faq-container">
+      <!-- LEFT : PHONE IMAGE -->
+      <div class="faq-image">
+        <img src="assets/iPhone 16 Dark.png" alt="Phone Preview">
+      </div>
+
+      <!-- RIGHT : QUESTIONS -->
+      <div class="faq-accordion">
+
+        <div class="faq-item active">
+          <button class="faq-question">
+            What is QR code ?
+            <span class="arrow">^</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              The term “QR” stands for “quick response” and refers to instant access to the information contained in the
+              Code. It is, in short, the evolution of the barcode, made up of patterns of black and white pixels. Denso
+              Wave, a Japanese subsidiary of Toyota Denso, developed them in order to mark the components of their cars
+              and thus speed up logistics in their production. Currently, it has gained great popularity, due to its
+              versatility and accessibility, thanks to the functions of smart phones.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Know the benefits of using QR
+            <span class="arrow">^</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              You will have noticed that more and more companies choose to include QR, as a fundamental resource for the
+              marketing and commercialization of their products and services. Its growing popularity is due to the
+              multiplicity of uses that you can give it: to receive payments from your clients, share links to web
+              pages, catalogs and price lists, receive comments on your products or services, invite the client to share
+              images or videos , promote your business events and much more, with just a scan!
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How to start using QR ?
+            <span class="arrow">^</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Many devices already have a built-in QR code reader. In this case, all you have to do is open the camera
+              on your mobile phone and hold it over a code for a few seconds, until a notification appears on the
+              screen. In case this does not happen, go to settings to check that QR scanning is enabled. If you don't
+              have the feature, just download and install a QR code reader from your app store.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-left">
+        <p class="footer-highlight">
+          Create free QR Codes instantly –
+          <br>
+          no login required, no downloads needed.
+        </p>
+        <p class="footer-made">
+          Made with <span>❤</span> in India.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>About</h4>
+          <a href="#">Best QR Code Generator</a>
+          <a href="#">How it works</a>
+          <a href="#">Blog</a>
+          <a href="#">FAQs</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>QR Generator</h4>
+          <a href="#">QR for URL</a>
+          <a href="#">QR for Text</a>
+          <a href="#">QR for Wi-Fi</a>
+          <a href="#">QR for Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 <span> Siddhi Software Company</span> - All Rights Reserved</p>
+
+      <div class="footer-policy">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms Of Use</a>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
