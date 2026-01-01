@@ -8,7 +8,8 @@
 }
 
 .hero {
-  height: 110vh;
+  height: 105vh;
+  min-height: 100vh;
   background: linear-gradient(180deg, #008AED 0%, #0083E2 38.1%);
   color: #fff;
   display: flex;
@@ -389,8 +390,7 @@
 /* CLOUD */
 .hero-cloud {
   position: absolute;
-  bottom: -23vw;
-  /* 👈 yahin se upar-neeche control karo */
+  bottom: -25vw;
   left: 0;
   width: 100%;
   z-index: 1;
@@ -666,4 +666,510 @@
 
 .footer-policy a:hover {
   text-decoration: underline;
+}
+
+/* ***********************Responsiveness**************** */
+@media (max-width: 1024px) {
+
+  .hero-container {
+    max-width: 85vw;
+    margin: 2vw auto 0;
+    gap: 1vw;
+  }
+
+  .left-card {
+    height: auto;
+  }
+
+  .tab {
+    font-size: 1.6vw;
+  }
+
+  .tab-content h4 {
+    font-size: 1.8vw;
+  }
+
+  .url-tab input,
+  .app-tab input {
+    height: 4vw;
+    font-size: 1.3vw;
+  }
+
+  .plain-textarea {
+    height: 20vw;
+    font-size: 1.3vw;
+  }
+
+  .qr-preview img {
+    width: 22vw;
+    height: 22vw;
+  }
+
+  .qr-buttons button {
+    height: 4vw;
+    width: 4vw;
+  }
+
+  .hero-cloud {
+    bottom: -22vw;
+  }
+
+   .how-section {
+    padding: 4vw 4vw;
+  }
+
+  .how-section h2 {
+    font-size: 3.2vw;
+    margin-bottom: 6vw;
+  }
+
+  .step {
+    max-width: 28vw;
+  }
+
+  .step-number {
+    width: 4vw;
+    height: 4vw;
+    font-size: 2vw;
+    margin-bottom: -2.5vw;
+  }
+
+  .step-box {
+    height: 10vw;
+  }
+
+  .step h4 {
+    font-size: 1.4vw;
+  }
+
+  .step p {
+    font-size: 1.2vw;
+  }
+
+  .cta-btn {
+    font-size: 2vw;
+    padding: 1.4vw 3vw;
+    margin-top: 7vw;
+  }
+
+  .faq-title {
+    font-size: 3.2vw;
+    margin-bottom: 7vw;
+  }
+
+  .faq-container {
+    max-width: 80vw;
+    gap: 5vw;
+    padding: 0 2vw;
+  }
+
+  .faq-image img {
+    max-width: 34vw;
+    height: 34vw;
+  }
+
+  .faq-question {
+    font-size: 1.8vw;
+  }
+
+  .faq-answer p {
+    font-size: 1.3vw;
+    line-height: 1.45;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 25vw;
+  }
+
+  .site-footer {
+    margin: 5% 8%;
+    font-size: 1.4vw;
+  }
+
+  .footer-highlight {
+    font-size: 1.8vw;
+  }
+
+  .footer-col h4 {
+    font-size: 1.8vw;
+  }
+
+  .footer-col a {
+    font-size: 1.4vw;
+  }
+
+  .footer-links {
+    gap: 6vw;
+  }
+
+  .footer-bottom {
+    padding-top: 3vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    padding-bottom: 10vw;
+  }
+
+  .hero-container {
+    flex-direction: column;
+    max-width: 90vw;
+    margin: 4vw auto;
+    height: 38vw;
+  }
+
+  .left-card {
+    width: 100%;
+  }
+
+  .tabs {
+    justify-content: center;
+  }
+
+  .tab {
+    font-size: 2.4vw;
+    padding: 1vw;
+  }
+
+  .tab-content h4 {
+    font-size: 2.8vw;
+  }
+
+  .url-tab input,
+  .app-tab input,
+  .sms-tab input,
+  .email-tab input,
+  .phone-tab input {
+    height: 6vw;
+    font-size: 2.2vw;
+  }
+
+  .plain-textarea,
+  .sms-tab textarea,
+  .email-tab textarea {
+    height: 10vw;
+    font-size: 2.2vw ;
+  }
+    /* INPUT PLACEHOLDER */
+  .url-tab input::placeholder,
+  .app-tab input::placeholder,
+  .sms-tab input::placeholder,
+  .email-tab input::placeholder,
+  .phone-tab input::placeholder {
+    font-size: 2.2vw;
+  }
+
+  /* TEXTAREA PLACEHOLDER */
+  .plain-textarea::placeholder,
+  .sms-tab textarea::placeholder,
+  .email-tab textarea::placeholder {
+    font-size: 2.2vw;
+  }
+
+  .contact-grid input {
+    font-size: 2.2vw;
+    padding: 1.4vw;
+  }
+  .right-card{
+    display: none;
+  }
+
+  .hero-cloud {
+    bottom: -20vw;
+  }
+
+  .how-section {
+    padding: 8vw 6vw;
+  }
+
+  .how-section h2 {
+    font-size: 3.8vw;
+    margin-bottom: 10vw;
+  }
+
+  .steps {
+    flex-direction: column;
+    gap: 8vw;
+    align-items: center;
+  }
+
+  .step {
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .step-number {
+    width: 6vw;
+    height: 6vw;
+    font-size: 3vw;
+    margin: 0 auto -4vw;
+  }
+
+  .step-box {
+    height: 18vw;
+  }
+
+  .step h4 {
+    font-size: 3vw;
+    margin-top: 4vw;
+  }
+
+  .step p {
+    font-size: 2.2vw;
+    line-height: 1.5;
+  }
+
+  .cta-btn {
+    font-size: 2.6vw;
+    padding: 2vw 4vw;
+    margin-top: 12vw;
+    border-radius: 18px;
+  }
+
+  .faq-section {
+    padding: 1vw 6vw;
+  }
+
+  .faq-title {
+    font-size: 3.8vw;
+    margin-bottom: 8vw;
+  }
+
+  .faq-container {
+    max-width: 100%;
+    gap: 8vw;
+    padding: 0;
+  }
+
+  .faq-image {
+    display: flex;
+    margin-top: 5vw;
+    justify-content: center;
+  }
+
+  .faq-image img {
+    max-width: 25vw;
+    height: auto;
+  }
+
+  .faq-question {
+    font-size: 2.2vw;
+    text-align: left;
+  }
+
+  .faq-answer p {
+    font-size: 1.5vw;
+    margin-top: 1vw;
+    line-height: 1.6;
+  }
+
+  .faq-item {
+    padding: 3vw 0;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 30vw;
+  }
+
+  .site-footer {
+    margin: 8% 6%;
+    font-size: 2vw;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 6vw;
+    padding-bottom: 6vw;
+  }
+
+  .footer-left {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .footer-highlight {
+    font-size: 2.5vw;
+    line-height: 1.4;
+  }
+
+  .footer-links {
+    justify-content: center;
+    gap: 10vw;
+  }
+
+  .footer-col h4 {
+    font-size: 2.2vw;
+  }
+
+  .footer-col a {
+    font-size: 2vw;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 3vw;
+    padding-top: 1vw;
+    text-align: center;
+  }
+
+  .footer-policy a {
+    margin-left: 0;
+    margin: 0 2vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 5vw;
+    text-align: center;
+  }
+
+  .hero-container {
+    max-width: 85vw;
+    height: 63vw;
+  }
+
+  .tabs {
+    gap: 0;
+    padding: 1vw;
+  }
+
+  .tab {
+    font-size: 2.78vw;
+    padding: 1vw 2.5vw;
+  }
+
+  .tab-content h4,.tab-content p{
+    font-size: 3vw;
+  }
+
+  .url-tab input,
+  .app-tab input,
+  .sms-tab input,
+  .email-tab input,
+  .phone-tab input {
+    height: 10vw;
+    font-size: 3.5vw;
+  }
+
+  .plain-textarea,
+  .sms-tab textarea,
+  .email-tab textarea {
+    height: 20vw;
+    font-size: 3.5vw;
+  }
+
+  .hero-cloud {
+    bottom: -20vw;
+  }
+
+  .how-section {
+    padding: 5vw 5vw;
+  }
+
+  .how-section h2 {
+    font-size: 4.5vw;
+    margin-bottom: 12vw;
+  }
+
+  .step {
+    max-width: 100%;
+  }
+
+  .step-number {
+    width: 9vw;
+    height: 9vw;
+    font-size: 5vw;
+    margin-bottom: -5vw;
+  }
+
+  .step-box {
+    height: 25vw;
+    border-radius: 16px;
+  }
+
+  .step h4 {
+    font-size: 3.7vw;
+    margin-top: 6vw;
+  }
+
+  .step p {
+    font-size: 2.8vw;
+    letter-spacing: 0.3px;
+  }
+
+  .cta-btn {
+    font-size: 3.5vw;
+    padding: 2vw 5vw;
+    margin-top: 10vw;
+    border-radius: 20px;
+  }
+
+  .faq-section {
+    padding: 12vw 1vw;
+  }
+
+  .faq-title {
+    font-size: 4.6vw;
+    margin-bottom: 12vw;
+  }
+
+  .faq-image img {
+    display: none;
+  }
+
+  .faq-question {
+    font-size: 3.7vw;
+    gap: 3vw;
+  }
+
+  .faq-answer p {
+    font-size: 2.8vw;
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+  }
+
+  .faq-item {
+    padding: 4vw 0;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 30vw;
+  }
+
+  .arrow {
+    font-size: 4vw;
+  }
+/* footer section */
+  .site-footer {
+    margin: 10% 4%;
+    font-size: 2.5vw;
+  }
+
+  .footer-highlight {
+    font-size: 3.5vw;
+  }
+
+  .footer-links {
+    flex-direction: row;
+    gap: 8vw;
+  }
+
+  .footer-col h4 {
+    font-size: 3vw;
+  }
+
+  .footer-col a {
+    font-size: 2.4vw;
+  }
+
+  .footer-bottom p {
+    font-size: 2.8vw;
+  }
+
+  .footer-policy a {
+    font-size: 2.5vw;
+  }
 }
