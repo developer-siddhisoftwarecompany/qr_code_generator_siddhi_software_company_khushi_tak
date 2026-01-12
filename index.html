@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <section class="hero">
+  <section class="hero" id="hero">
 
     <!-- Logo -->
     <div class="logo">ToolsWala</div>
@@ -115,22 +115,46 @@
 
       <!-- RIGHT -->
       <div class="right-card">
-        <div class="qr-preview">
+        <!-- <div class="qr-preview">
           <img src="assets/QR code.png" alt="Qr code">
+        </div> -->
+        <div class="qr-preview">
+          <img src="assets/QR_code_rightcard.png" id="qrPlaceholder" alt="QR placeholder">
+          <div id="qrcode"></div>
         </div>
 
+
+
+
+
         <div class="qr-buttons">
-          <button class="green"><img src="assets/download.png" alt="download"></button>
-          <button class="blue"><img src="assets/share.png" alt="share"></button>
-          <button class="purple"><img src="assets/copy.png" alt="copy"></button>
-          <button class="orange"><img src="assets/paint.png" alt="paint"></button>
+          <button class="green"><img src="assets/download_icon_rightcard.png" alt="download"></button>
+          <button class="blue"><img src="assets/share_icon_rightcard.png" alt="share"></button>
+          <button class="purple"><img src="assets/copy_icon_rightcard.png" alt="copy"></button>
+
+          <!-- <button class="orange" id="paintBtn">
+            <img src="assets/paint.png">
+          </button>
+
+          <input type="color" id="qrColorPicker" value="#008AED"> -->
+          <button class="orange" id="paintBtn">
+            <img src="assets/color_icon_rightcard.png">
+          </button>
+
+          <div class="color-palette" id="colorPalette">
+            <span data-color="#008AED"></span>
+            <span data-color="#000000"></span>
+            <span data-color="#ff4d4d"></span>
+            <span data-color="#00c853"></span>
+            <span data-color="#ff9800"></span>
+          </div>
         </div>
       </div>
 
     </div>
 
     <div class="hero-cloud">
-      <img src="assets/Group 1.png" alt="cloud divider">
+      <img src="assets/cloud_homescreen.png" alt="cloud divider">
     </div>
 
 
@@ -162,7 +186,7 @@
       </div>
     </div>
 
-    <button class="cta-btn">Create QR Code</button>
+    <button class="cta-btn" onclick="location.href='#hero'">Create QR Code</button>
   </section>
 
   <section class="faq-section">
@@ -171,7 +195,7 @@
     <div class="faq-container">
       <!-- LEFT : PHONE IMAGE -->
       <div class="faq-image">
-        <img src="assets/iPhone 16 Dark.png" alt="Phone Preview">
+        <img src="assets/phone_section.png" alt="Phone Preview">
       </div>
 
       <!-- RIGHT : QUESTIONS -->
@@ -270,6 +294,8 @@
     </div>
   </footer>
 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="script.js"></script>
 </body>
 
