@@ -24,8 +24,8 @@ function generateQR(text) {
 
   qr = new QRCode(qrBox, {
     text,
-    width: 220,
-    height: 220,
+    width: 350,
+    height: 350,
     colorDark: qrColor,
     colorLight: bgColor
   });
@@ -127,11 +127,51 @@ document.querySelector(".green").onclick = () => {
   const canvas = qrBox.querySelector("canvas");
   if (!canvas) return;
 
+  const brandText = "ToolsWala"; // 👈 yahan apna naam
+
+  const qrSize = canvas.width;
+  const padding = 10;
+  const extraHeight = 60;
+
+  // 🆕 new canvas for download only
+  const downloadCanvas = document.createElement("canvas");
+  downloadCanvas.width = qrSize;
+  downloadCanvas.height = qrSize + extraHeight;
+
+  const ctx = downloadCanvas.getContext("2d");
+
+  // background white
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, downloadCanvas.width, downloadCanvas.height);
+
+  // original QR
+  ctx.drawImage(
+  canvas,
+  padding,
+  padding,
+  qrSize - padding * 2,
+  qrSize - padding * 2
+);
+
+
+  // ---- BRANDING TEXT (bookmark style) ----
+  ctx.fillStyle = "#000000";
+  ctx.font = "bold 20px Arial";
+  ctx.textAlign = "right";
+  ctx.textBaseline = "middle";
+  ctx.fillText(
+    brandText,
+    downloadCanvas.width - 15,
+    qrSize + extraHeight / 2
+  );
+
+  // download
   const link = document.createElement("a");
-  link.href = canvas.toDataURL("image/png");
   link.download = "qr-code.png";
+  link.href = downloadCanvas.toDataURL("image/png");
   link.click();
 };
+
 
 // ---------- COPY ----------
 document.querySelector(".purple").onclick = async () => {

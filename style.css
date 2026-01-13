@@ -36,7 +36,7 @@ html {
   position: relative;
   z-index: 2;
   max-width: 65vw;
-  margin: 1vw 7vw 0vw 18vw;
+  margin: 2vw auto 0; 
   display: flex;
   gap: 0.5vw;
 }
@@ -878,7 +878,7 @@ html {
 
   .hero-container {
     flex-direction: column;
-    margin: 1vw auto;
+    margin: 4vw auto 0;
     max-width: 92vw;
   }
 
@@ -943,13 +943,11 @@ html {
 
   .right-card {
     display: flex;
-    flex-direction: row;
   }
 
   .qr-preview {
     height: 30vw !important;
     max-height: 240px;
-    width: 80%;
   }
 
   .qr-preview img {
@@ -959,7 +957,8 @@ html {
   }
 
   .qr-buttons {
-    flex-direction: column;
+align-items: center;
+margin: 5% 0 3% 30%;
   }
 
   .qr-buttons button,
@@ -1124,9 +1123,10 @@ html {
   }
 
   .hero-container {
-    flex-direction: column;
-    margin: 1vw auto;
     max-width: 92vw;
+    margin: 5vw auto 0;   /* center + thoda gap top se */
+    flex-direction: column;
+    gap: 1vw;
   }
 
   .left-card,
@@ -1196,14 +1196,12 @@ html {
 
   .right-card {
     display: flex;
-    flex-direction: row;
     padding: 2vw;
   }
 
   .qr-preview {
     height: 30vw !important;
     max-height: 240px;
-    width: 70%;
     text-align: center;
   }
 
@@ -1213,9 +1211,12 @@ html {
     object-fit: contain;
   }
 
-  .qr-buttons {
-    flex-direction: column;
+    .qr-buttons {
+align-items: center;
+margin: 5% 0 3% 30%;
+gap: 100%;
   }
+
 
   .qr-buttons button,
   .qr-buttons img {
