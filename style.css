@@ -13,7 +13,7 @@ html {
 
 .hero {
   height: 105vh;
-  min-height: 100vh;
+  min-height: 80vh;
   background: linear-gradient(180deg, #008AED 0%, #0083E2 38.1%);
   color: #fff;
   display: flex;
@@ -36,7 +36,7 @@ html {
   position: relative;
   z-index: 2;
   max-width: 65vw;
-  margin: 2vw auto 0; 
+  margin: 2vw auto 0;
   display: flex;
   gap: 0.5vw;
 }
@@ -957,8 +957,8 @@ html {
   }
 
   .qr-buttons {
-align-items: center;
-margin: 5% 0 3% 30%;
+    align-items: center;
+    margin: 5% 0 3% 30%;
   }
 
   .qr-buttons button,
@@ -1124,7 +1124,8 @@ margin: 5% 0 3% 30%;
 
   .hero-container {
     max-width: 92vw;
-    margin: 5vw auto 0;   /* center + thoda gap top se */
+    margin: 20vw auto 0;
+    /* center + thoda gap top se */
     flex-direction: column;
     gap: 1vw;
   }
@@ -1153,6 +1154,10 @@ margin: 5% 0 3% 30%;
     font-weight: 400;
   }
 
+  .contact-grid {
+    gap: 1.5vw;
+  }
+
   .url-tab input,
   .plain-textarea,
   .contact-grid input,
@@ -1165,6 +1170,7 @@ margin: 5% 0 3% 30%;
     font-size: 2.3vw;
     height: 6vw;
     font-weight: 600;
+    margin-bottom: 1.5vw;
   }
 
   .pdf-upload p {
@@ -1211,10 +1217,10 @@ margin: 5% 0 3% 30%;
     object-fit: contain;
   }
 
-    .qr-buttons {
-align-items: center;
-margin: 5% 0 3% 30%;
-gap: 100%;
+  .qr-buttons {
+    align-items: center;
+    margin: 5% 0 3% 30%;
+    gap: 100%;
   }
 
 
@@ -1276,6 +1282,10 @@ gap: 100%;
 
   .faq-section {
     padding: 12vw 1vw;
+  }
+
+  .faq-container {
+    padding-right: 10vw;
   }
 
   .faq-title {

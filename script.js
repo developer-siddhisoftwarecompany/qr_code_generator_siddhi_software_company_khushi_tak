@@ -31,6 +31,38 @@ function generateQR(text) {
   });
 }
 
+function getBrandedCanvas() {
+  const canvas = qrBox.querySelector("canvas");
+  if (!canvas) return null;
+
+  const size = canvas.width;
+  const extra = 60;
+
+  const c = document.createElement("canvas");
+  c.width = size;
+  c.height = size + extra;
+
+  const ctx = c.getContext("2d");
+
+  ctx.fillStyle = "#fff";
+  ctx.fillRect(0, 0, c.width, c.height);
+
+  ctx.drawImage(canvas, 0, 0);
+
+  ctx.strokeStyle = "#e6e6e6";
+  ctx.beginPath();
+  ctx.moveTo(20, size + 10);
+  ctx.lineTo(c.width - 20, size + 10);
+  ctx.stroke();
+
+  ctx.fillStyle = "#008AED";
+  ctx.font = "bold 16px Arial";
+  ctx.textAlign = "center";
+  ctx.fillText("ToolsWala", c.width / 2, size + 35);
+
+  return c;
+}
+
 
 
 
@@ -39,6 +71,7 @@ document.querySelector('#url input')
   .addEventListener("input", e =>
     generateQR(e.target.value.trim())
   );
+
 
 // ---------- PDF ----------
 document.querySelector('#pdf input[type="file"]')
@@ -49,6 +82,7 @@ document.querySelector('#pdf input[type="file"]')
     const fileURL = URL.createObjectURL(file);
     generateQR(fileURL);
   });
+
 
 // ---------- CONTACT (vCard) ----------
 const contactTab = document.querySelector("#contact");
@@ -77,11 +111,13 @@ END:VCARD`;
   generateQR(vCard);
 });
 
+
 // ---------- PLAIN TEXT ----------
 document.querySelector('#text textarea')
   .addEventListener("input", e =>
     generateQR(e.target.value)
   );
+
 
 // ---------- APP ----------
 const appTab = document.querySelector("#app");
@@ -93,6 +129,7 @@ appTab.addEventListener("input", () => {
   else if (ios) generateQR(ios);
 });
 
+
 // ---------- SMS ----------
 const smsTab = document.querySelector("#sms");
 smsTab.addEventListener("input", () => {
@@ -102,6 +139,7 @@ smsTab.addEventListener("input", () => {
   if (!phone) return;
   generateQR(`sms:${phone}?body=${msg}`);
 });
+
 
 // ---------- EMAIL ----------
 const emailTab = document.querySelector("#email");
@@ -114,13 +152,14 @@ emailTab.addEventListener("input", () => {
   generateQR(`mailto:${email}?subject=${subject}&body=${body}`);
 });
 
+
 // ---------- PHONE ----------
 document.querySelector('#phone input')
   .addEventListener("input", e =>
     generateQR(`tel:${e.target.value}`)
   );
 
-// ================= BUTTON ACTIONS =================
+// ============================= BUTTON ACTIONS ======================================
 
 // ---------- DOWNLOAD ----------
 document.querySelector(".green").onclick = () => {
@@ -154,68 +193,111 @@ document.querySelector(".green").onclick = () => {
 );
 
 
-  // ---- BRANDING TEXT (bookmark style) ----
-  ctx.fillStyle = "#000000";
-  ctx.font = "bold 20px Arial";
-  ctx.textAlign = "right";
-  ctx.textBaseline = "middle";
-  ctx.fillText(
-    brandText,
-    downloadCanvas.width - 15,
-    qrSize + extraHeight / 2
-  );
+// ---- BRANDING TEXT (bookmark style) ----
+// ---------- BRAND DIVIDER ----------
+ctx.strokeStyle = "#E6E6E6";   // soft divider
+ctx.lineWidth = 1;
+ctx.beginPath();
+ctx.moveTo(20, qrSize + 10);
+ctx.lineTo(downloadCanvas.width - 20, qrSize + 10);
+ctx.stroke();
 
-  // download
-  const link = document.createElement("a");
-  link.download = "qr-code.png";
-  link.href = downloadCanvas.toDataURL("image/png");
-  link.click();
+// ---------- BRAND NAME ----------
+ctx.fillStyle = "#008AED";    // ToolsWala blue
+ctx.font = "bold 16px Arial";
+ctx.textAlign = "center";
+ctx.textBaseline = "middle";
+
+ctx.fillText(
+  "ToolsWala",
+  downloadCanvas.width / 2,
+  qrSize + 28
+);
+
+// ---------- TAGLINE ----------
+ctx.fillStyle = "#666666";    // subtle gray
+ctx.font = "12px Arial";
+
+ctx.fillText(
+  "Smart QR Generator",
+  downloadCanvas.width / 2,
+  qrSize + 46
+);
+
+ 
+ // 🔽 DOWNLOAD LOGIC (SAFE)
+  const dataURL = downloadCanvas.toDataURL("image/png");
+
+  const isSafari = navigator.userAgent.includes("Safari") &&
+                   !navigator.userAgent.includes("Chrome");
+
+  if (isSafari) {
+    window.open(dataURL);
+  } else {
+    const link = document.createElement("a");
+    link.href = dataURL;
+    link.download = `toolswala_qr_${Date.now()}.png`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 };
 
 
 // ---------- COPY ----------
-document.querySelector(".purple").onclick = async () => {
-  const canvas = qrBox.querySelector("canvas");
-  if (!canvas) {
-    alert("Generate QR first");
-    return;
+document.querySelector(".purple").onclick = () => {
+
+  // ✅ Safari detection
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+  if (isSafari) {
+    alert("Safari users: Please use Download option");
+    return; // 👈 yahin stop ho jayega
   }
+
+  const canvas = getBrandedCanvas();
+  if (!canvas) return alert("Generate QR first");
 
   canvas.toBlob(async (blob) => {
     try {
       await navigator.clipboard.write([
         new ClipboardItem({ "image/png": blob })
       ]);
-      console.log("QR copied");
-    } catch (err) {
-      alert("Copy not supported in this browser");
+      alert("QR copied successfully");
+    } catch (e) {
+      alert("Copy failed");
     }
   });
 };
 
+
 // ---------- SHARE ----------
-document.querySelector(".blue").onclick = async () => {
-  const canvas = qrBox.querySelector("canvas");
-  if (!canvas) {
-    alert("Generate QR first");
+document.querySelector(".blue").onclick = () => {
+  if (!navigator.share) {
+    alert("Share supported only on mobile devices");
     return;
   }
 
-  if (!navigator.canShare) {
-    alert("Sharing not supported on this browser");
-    return;
-  }
+  const canvas = getBrandedCanvas();
+  if (!canvas) return alert("Generate QR first");
 
   canvas.toBlob(async (blob) => {
-    const file = new File([blob], "qr-code.png", { type: "image/png" });
+    const file = new File([blob], "toolswala_qr.png", {
+      type: "image/png"
+    });
+
+    if (!navigator.canShare || !navigator.canShare({ files: [file] })) {
+      alert("Share supported only on mobile devices");
+      return;
+    }
 
     try {
       await navigator.share({
-        title: "My QR Code",
-        text: "Scan this QR code",
+        title: "ToolsWala QR",
+        text: "Scan this QR",
         files: [file]
       });
-    } catch (err) {
+    } catch {
       console.log("Share cancelled");
     }
   });
